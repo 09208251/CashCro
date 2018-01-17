@@ -1,7 +1,9 @@
 package com.CashKro_Login;
 
+import java.io.File;
 import java.io.IOException;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
@@ -13,11 +15,14 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.yaml.snakeyaml.emitter.EmitterException;
 
+import com.steadystate.css.util.Output;
+
 public class Forgot_pwd extends Constants {
 	@BeforeTest
 	public void app_Login() throws Exception {
 		lg.app_Lunch();
-		
+		File src=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(src, new File("d://image.jpg"));
 		Select sc=new Select(driver.findElement(By.tagName("body")));
 		
 	}
